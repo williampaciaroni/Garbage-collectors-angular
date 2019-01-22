@@ -1,0 +1,25 @@
+form{width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    overflow: hidden;
+    display: grid;}
+
+.login{
+    margin: 3% 33%; width: 33%; align-items: center
+}
+
+ .inputT{float: left; margin: 5px 0; width: 98%; padding: 3% 0%; 
+    border: 1px solid rgba(128, 128, 128, 0.8);
+    border-radius: 5px; text-align: center;
+    font-family: Helvetica; font-size: 15px;
+    color: black}
+
+.inputL{float: left; margin-left: 25%; margin-top: 5%; width: 50%; padding: 3% 0%; 
+    background-color: rgb(144, 238, 144);
+    border-radius: 5px; text-align: center;
+    font-family: Helvetica; font-size: 18px;
+    font-weight: bold; color: rgb(2, 104, 2)}
+
+.divider{height: 80px;}
+
+.avatar{margin-left: 23%}

@@ -1,0 +1,21 @@
+<div class="ricerca scale-in-bl">
+  <img src="assets/images/logoCentrale.png" class="logoCentrale">
+  <form method="GET" class="form">
+    <input id="barCode" type="text" placeholder="8001050026066" class="inputN"><br>
+    <input #areaBox id="area" type="text" placeholder="Città" class="inputT" (input)="search(areaBox.value)"><br>
+  </form>
+  <button (click)="onClick()" class="inputS">Cerca</button>
+</div>
+
+<div class="divider"></div>
+
+<div class="container" *ngIf="product!==undefined">
+  <h2 class="nomeProdotto">Prodotto:  </h2> 
+  <h3> {{product.nomeProdotto}} </h3>
+</div>
+
+<div class="contenComp" *ngIf="politiche$">
+  <div id="containerComponente" class="card" *ngFor="let politica of politiche$" [style.color]='getColor(politica)'>
+      <h2>{{politica.componente.nomeComponente}}</h2><br>
+  </div>
+</div>

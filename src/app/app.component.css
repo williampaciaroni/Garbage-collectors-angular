@@ -1,0 +1,66 @@
+/* nav{width: 100%; display: block; height: 80px; border-radius: 0px; background-color: rgba(144, 238, 144, 0.842)} */
+/* 
+.element{display: inline-block; margin-right: 50px; font-size: 20px;  */
+        /* font-family: Helvetica; font-weight: bold; 
+        text-decoration-line: none; color: rgb(2, 104, 2);} 
+
+.logo{margin-left: 30px; margin-right: 100px; display: inline-block; vertical-align: middle;}
+
+.element:hover{opacity: 0.8;}
+
+.divider{height: 50px;}
+
+#menu{display: inline-block; margin-right: 50px; font-size: 20px; 
+        font-family: Helvetica; font-weight: bold; 
+        text-decoration-line: none; color: rgb(2, 104, 2);}
+
+ul{margin: 0; padding: 0; list-style-type: none; padding-top: 10px;}
+
+li{width: 100px; margin: 0; padding: 0; margin-top: 5px;}
+
+li ul{display: none;  width: auto}
+
+li:hover ul{display: block; position: absolute; z-index: 1;}
+
+#menuAccount{border: 0px; font-size: 17px; background-color: white; padding: 3px 16px;}
+
+.elementMenuList{font-size: 16px; font-weight: normal; margin-top: 10px;}
+
+.titleMenuList{border-bottom: 1px solid rgba(144, 238, 144, 0.842); width: auto;}
+
+#menuPhone{display: none;}
+
+#btnLogin{padding: 3px; margin:8px 15%; font-size: 17px; font-weight: bold; border-radius: 3px; box-shadow: none;
+        background-color: rgb(144, 238, 144);
+        border-radius: 5px; text-align: center;
+        font-family: Helvetica; font-size: 18px;
+        font-weight: bold; color: rgb(2, 104, 2);
+        width:70%} */
+
+
+/* .navbar{background-color: rgba(102, 236, 102, 0.842)} */
+
+#navbarDropdownMenuLink:hover~.dropdown-menu{display: block;}
+
+.dropdown-menu:hover{display: block};
+
+.dropdown-menu{padding-top: 0px; margin-top: 0}
+
+.btn.btn-outline-success{margin:5px 0; margin-left: 18%; width: 100px;}
+
+.nav-item{font-family: Helvetica; font-weight: bold; font-size: 20px; margin: 0 10px;}
+
+.navbar-light.navbar-nav.nav-link{color: rgba(2, 104, 2,1);}
+
+.phone{display: none;}
+
+button{ width: 50%; margin: 7px 25%;}
+
+@media (max-width: 767px)
+{
+  #logo{display: none;}
+  #itemDrop{display: none;}
+  .phone{display: block;}
+}
+
+
