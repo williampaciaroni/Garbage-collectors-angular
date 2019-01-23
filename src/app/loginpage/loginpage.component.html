@@ -6,15 +6,20 @@
   </form>
   <button class="inputL" (click)='onClickLogin()'>Login</button>
 </div> -->
-<div class="divider"></div>
-<div class="scale-in-hor-center">
-<form>
-  <div class="form-group">
-    <input type="email" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Username" required>
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" id="psw" placeholder="Password" required>
-  </div>
-  <button type="submit" class="btn btn-success" (click)="onClickLogin()">Accedi</button>
-</form>
+<div class="wrapLogin  scale-in-hor-center">
+    <div class="loginTitle">
+      <img src="assets/images/mondo.jpg" alt="">
+      <div class="middle">
+          <div class="text">Accedi</div>
+        </div>
+    </div>
+    <form>
+      <div class="form-group">
+        <input type="email" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Username" required>
+        </div>
+       <div class="form-group">
+          <input type="password" class="form-control" id="psw" placeholder="Password" required>
+        </div>
+      <button type="submit" class="btn" (click)="onClickLogin()">Accedi</button>
+    </form>
 </div>

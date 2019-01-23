@@ -11,13 +11,14 @@ import { LoginGuardService } from './login-guard.service';
 import { RoleGuardService } from './role-guard.service';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { InserisciComponent } from './inserisci/inserisci.component';
+import { RicercaComponent } from './ricerca/ricerca.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full'},
-  { path: 'dashboard', component: DashboardComponent},
   { path: 'products/:id', component: ProductDetailComponent},
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: FirstpageComponent},
+  { path: 'search', component: RicercaComponent},
   { path: 'login', component: LoginpageComponent, canActivate: [LoginGuardService] },
   { path: 'insert', component: InserisciComponent, canActivate: [RoleGuardService], data: { expectedRole: 'REGISTRATO' }},
   { path: '**', component: PagenotfoundComponent }
