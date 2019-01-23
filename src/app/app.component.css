@@ -54,8 +54,19 @@ li:hover ul{display: block; position: absolute; z-index: 1;}
 
 .phone{display: none;}
 
-button{ width: 50%; margin: 7px 25%;}
+.log{ width: 50%; margin: 7px 25%;}
 
+
+.cover{height:100%;
+        background-image: url("/src/assets/images/acqua.jpg");
+        background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+.cover__caption{ display: table; height: 100%; width: 100%; position: absolute; z-index: 1; padding: 0;}
+.cover__caption__copy{ display: table-cell; vertical-align: bottom; text-align:right; color: #fff; padding-bottom: 2%; padding-right: 3%;}
 @media (max-width: 767px)
 {
   #logo{display: none;}

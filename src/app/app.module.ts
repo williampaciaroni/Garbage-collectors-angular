@@ -25,6 +25,7 @@ import { RoleGuardService } from './role-guard.service';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { InserisciComponent } from './inserisci/inserisci.component';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
+import { MediaComponent } from './media/media.component';
 
 
 
@@ -43,7 +44,8 @@ import { AuthInterceptor } from './interceptor/auth-interceptor';
     LoginpageComponent,
     MenuNavComponent,
     PagenotfoundComponent,
-    InserisciComponent  
+    InserisciComponent,
+    MediaComponent  
   ],
   imports: [
     BrowserModule,

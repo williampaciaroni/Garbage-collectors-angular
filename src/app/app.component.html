@@ -63,7 +63,7 @@
           <div class="dropdown-menu" id="dropDownMenu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Profilo</a>
             <a class="dropdown-item" href="#">Impostazioni</a>
-            <button class="btn btn-success" (click)="onClickLog()">{{buttonLogName}}</button>
+            <button class="btn btn-success log" (click)="onClickLog()">{{buttonLogName}}</button>
           </div>
         </li>
         <li class="nav-item phone">
@@ -73,14 +73,26 @@
           <a class="nav-link" routerLink="/insert">Impostazioni</a>
         </li>
         <li class="nav-item phone">
-          <button class="btn btn-success" (click)="onClickLog()">{{buttonLogName}}</button>
+          <button class="btn btn-success log" (click)="onClickLog()">{{buttonLogName}}</button>
         </li>
       </ul>
     </div>
   </nav>
 
+  <section class="cover">
+    <div class="cover__caption">
+      <div class="cover__caption__copy">
+
+      </div>
+    </div>
+  </section>
+
   <div class="divider"></div>
 
 
   <router-outlet></router-outlet>
+
+  <div class="divider"></div>
+  
+  <app-media></app-media>
   <!-- <app-messages></app-messages> -->
