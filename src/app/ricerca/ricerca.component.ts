@@ -6,6 +6,9 @@ import { Area } from '../area';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { AreaService } from '../area.service';
 import { PoliticaSmaltimento } from '../politicasmaltimento';
+import { TokenService } from '../token.service';
+
+import Quagga from 'quagga';
 
 @Component({
   selector: 'app-ricerca',
@@ -19,8 +22,8 @@ export class RicercaComponent implements OnInit {
   area$:  Observable<Area[]>;
   area: Area;
   politiche$: PoliticaSmaltimento[];
-
-  constructor(private productService: ProductService, private areaService: AreaService) { }
+  
+  constructor(private productService: ProductService, private areaService: AreaService, private token:TokenService) { }
 
   search(term: string): void {
     this.searchTerms.next(term);
@@ -62,5 +65,22 @@ export class RicercaComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  onClickCheckBox(){
+    if((<HTMLInputElement>document.getElementById('checkBoxArea')).checked===true){
+      (<HTMLInputElement>document.getElementById('area')).disabled=true;
+    }else{
+      (<HTMLInputElement>document.getElementById('area')).disabled=false;
+    }
+    
+  }
+
+  isAuthenticated(){
+    return this.token.isAuthenticated();
+  }
+
+  onClickScan(){
+    // const Quagga=require('quagga').default;
   }
 }

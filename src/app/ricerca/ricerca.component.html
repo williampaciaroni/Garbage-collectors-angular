@@ -1,4 +1,4 @@
-<div class="ricerca scale-in-hor-center">
+<!-- <div class="ricerca scale-in-hor-center">
   <img src="assets/images/logoCentrale.png" class="logoCentrale scale-down-center">
   <form method="GET" class="form">
     <input id="barCode" type="text" placeholder="8001050026066" class="inputN"><br>
@@ -18,4 +18,25 @@
   <div id="containerComponente" class="card" *ngFor="let politica of politiche$" [style.color]='getColor(politica)'>
       <h2>{{politica.componente.nomeComponente}}</h2><br>
   </div>
+</div> -->
+<div class="frame-video">
+  <video id="video-back" class="video-back" playsinline="true"></video>
 </div>
+<div class="wrapSearch  scale-in-hor-center">
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" id="barCode" aria-describedby="emailHelp" placeholder="8001050026066" required>
+        </div>
+       <div class="form-group">
+          <input type="text" class="form-control" id="area" placeholder="Città" required>
+          <input type="checkbox" id="checkBoxArea" name="checkAreaResidenza" (click)="onClickCheckBox()" *ngIf="isAuthenticated()"> <label *ngIf="isAuthenticated()"> Area di Residenza</label>
+        </div>
+      <button type="submit" class="btn" (click)="onClickLogin()">Cerca</button>
+    </form>
+</div>
+
+<nav class="navbar">
+  <button class="barcodeBtn" (click)="onClickScan(e)">
+    <img class="imgBar" src="assets/images/barcode.png" alt="">
+  </button>
+</nav>

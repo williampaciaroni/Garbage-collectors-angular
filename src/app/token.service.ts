@@ -10,7 +10,9 @@ import { catchError, flatMap } from 'rxjs/operators';
 })
 export class TokenService {
 
-  private url="http://192.168.1.72";
+  private url="http://10.0.12.221";
+  private client_username="test_user";
+  private cient_psw="test_psw";
   constructor(private http: HttpClient) { 
     
   }
@@ -22,7 +24,7 @@ export class TokenService {
     params.append('grant_type', 'password');
 
     const headers = new HttpHeaders({'Content-type': 'application/x-www-form-urlencoded',
-                                    'Authorization': 'Basic ' + btoa('garbage_app:garbage')});  // btoa(...) converte una stringa in base-64
+                                    'Authorization': 'Basic ' + btoa(this.client_username+':'+this.cient_psw)});  // btoa(...) converte una stringa in base-64
 
     
     return this.http.post<HttpResponse<string>>(this.url+':8082/oauth/token', params.toString(), {headers: headers});
@@ -39,7 +41,7 @@ export class TokenService {
     
 
     const headers = new HttpHeaders({'Content-type': 'application/x-www-form-urlencoded',
-                                    'Authorization': 'Basic ' + btoa('garbage_app:garbage')}); 
+                                    'Authorization': 'Basic ' + btoa(this.client_username+':'+this.cient_psw)}); 
              
     
     return this.http.post<HttpResponse<string>>(this.url+':8082/oauth/token', params.toString(), {headers: headers}).pipe(

@@ -1,85 +1,102 @@
-.logoCentrale{opacity: 0.8; margin-left: 20%; margin-top: 0%;}
-.ricerca{margin: 3% 33%; width: 33%; align-items: center}
-.form{width: 50%;
-    margin: auto;
-    margin-top: 10%;
-    overflow: hidden;
-    display: grid;}
+img{width: 100%; display: block;backface-visibility: hidden; opacity: 0.4;  background-color: rgba(0, 0, 0, 1);
+    border-top-left-radius: 10px; border-top-right-radius: 10px; height: 100px; }
 
-.inputT{float: left; margin: 5px 0; width: 98%; padding: 3% 0%; 
-        border: 1px solid rgba(128, 128, 128, 0.8);
-        border-radius: 5px; text-align: center;
-        font-family: Helvetica; font-size: 15px;
-        color: black}
+form{width: 50%; padding:5% 0 5% 0; overflow: hidden;
+    display: grid; margin: auto;
+    background-color: rgba(0, 0, 0, 0.582);
+    border-radius: 20px;
+    border:0;
+}
 
-            
-.inputN{float: left; margin: 5px 0; width: 98%; padding: 3% 0%; 
-    border: 1px solid rgb(128, 128, 128, 0.8);
-    border-radius: 5px; text-align: center;
-    font-family: Helvetica; font-size: 15px;
-    color: black}
+.form-group{
+  width: 50%;
+  margin: auto;
+  margin-top: 3%;
+}
+button{font-size: 20px;  font-family: Helvetica; margin:auto; border-radius: 25px; margin-top: 5%;}
 
-.inputS{float: left; margin-left: 12.5%; margin-top: 5%; width: 75%; padding: 3% 0%; 
-    background-color: rgb(144, 238, 144);
-    border-radius: 5px; text-align: center;
-    font-family: Helvetica; font-size: 18px;
-    font-weight: bold; color: rgb(2, 104, 2)}
+.loginTitle{width: 100%; padding-top: 0%; border-top-left-radius: 10px; border-top-right-radius: 10px; 
+            opacity: 0.7; display: block; background-color: black;}
 
-.inputS:hover{color: rgb(2, 88, 2);text-shadow: 0px 1px black}
+.wrapSearch{display: block; border: 1px solid rgba(128, 128, 128, 0.692); width: 70%; margin: 3% 15% 0 15%;
+    padding: 10% 0% 10% 0%;
+    border-radius: 10px;
+    background-image: url("/assets/images/rainforest.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border:0;}
 
 
-.divider{height: 80px;}
+.btn{background-color: #ffffff; opacity: 0.8; color: black; width: 30%; transition: 0.8s;}
 
-.container{margin-left: 33%;display: block;width: 33%;}
+.form-control{border-radius: 20px;
+              color: black;}
 
-.nomeProdotto{display: inline-block; margin-left: 33%; font-family: helvetica; font-weight: bold; font-size: 24px;color: rgb(2, 88, 2);}
-h3{display: inline-block; margin-left: 30px;font-family: helvetica; font-weight: bold; font-size: 22px;color: rgb(2, 88, 2);}
+.btn:hover{opacity: 1;
+           width: 32%;
+           font-weight: bold;
+}         
 
-.search-result li {
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    width:195px;
-    height: 16px;
-    padding: 5px;
-    background-color: white;
-    cursor: pointer;
-    list-style-type: none;
-  }
-   
-  .search-result li:hover {
-    background-color: #607D8B;
-  }
-   
-  .search-result li a {
-    color: #888;
+#check{margin-top: 5%;}
+
+label{margin: 0 0 0 3%;
+      color: white;
+      font-family: Helvetica;
+      font-weight: bold;}
+
+.navbar{
+        display: none;
+        background-color: white;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        height: 10%;
+        border-top: 1px solid grey;
+        padding: 0;
+}
+
+.barcodeBtn{
     display: block;
-    text-decoration: none;
-  }
-   
-  .search-result li a:hover {
-    color: white;
-  }
-  .search-result li a:active {
-    color: white;
-  }
-   
-  ul.search-result {
-    margin-top: 0;
-    padding-left: 0;
-  }
+    background-color: white;
+    margin:0;
+    height: 100%;
+    width: 15%;
+    border:0;
+    padding: 0;
+    border-radius: 0;
+}
 
-  table{border-collapse: collapse;width: 60%;margin: 50px 20% 50px 20%;}
-  td,th{border: 1px solid rgb(2, 88, 2);}
-  .nomeColonna{color:rgb(2, 88, 2); font-weight: bold; font-size: 20px;}
+.imgBar{width: 100%;
+        background-color: transparent;
+        opacity: 1;
+        height: 100%;
+        margin: 0;
+}
 
-  .contenComp{ width: 60%; margin: 50px 20% 50px 20%;display: block;}
-  .card{border: 4px solid; border-radius: 10px; display: block; width: 50%; margin: 10px 24% 10px 24%;}
-  .politicaSmaltimento{margin: 5px 5% 5px 0;}
-
+.frame-video{
+    display: block;
+    float:none;
+    position: absolute;
+    z-index: auto;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
 
   @media (max-width: 767px)
   {
-    .ricerca{display: none};
+    .wrapSearch{width: 100%;
+                margin: 35% 0% 0 0%;
+                padding: 10% 0 10% 0;
+                border-radius: 0;
+    }
+
+    .navbar{display: block;}
+
+    form{width: 80%;}
+
+    .form-group{width: 90%;}
     
+  
   }

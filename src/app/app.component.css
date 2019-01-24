@@ -60,7 +60,10 @@
 
 @media (max-width: 767px)
 {
-  #logo{display: none;}
+  .navbar-brand{width: 30%;
+                margin-left:0%}
+  .navbar{background-color: white;}
+  #logo{width: 100%;}
   #itemDrop{display: none;}
   .phone{display: block;}
   #navbarButton{width: 56px; position:relative;}

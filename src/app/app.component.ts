@@ -48,6 +48,7 @@ export class AppComponent {
   }
 
   onActivate() {
+    window.scroll(0,0);
     var side=document.getElementById("sideNav");
     side.style.width="0px";
     document.getElementById("hamburger").style.right="0";

@@ -27,6 +27,7 @@
     "jwt-decode": "^2.2.0",
     "ngx-onsenui": "^7.0.0",
     "onsenui": "^2.10.6",
+    "quagga": "^0.12.1",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
