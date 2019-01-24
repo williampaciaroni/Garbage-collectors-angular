@@ -11,13 +11,20 @@
 
 .navbar{position: fixed; z-index: 1; width: 100%; top:0;}
 
-#hamburger{font-size: 45px; font-weight: bold; padding:5px; right: 0; display: inline; position: fixed;
-           z-index: 2; transition: 0.5s; top:0;
+#hamburger{font-size: 45px; 
+           font-weight: bold; 
+           padding:5px; 
+           right: 0; 
+           display: inline; 
+           position: fixed;
+           z-index: 2; 
+           transition: 0.9s; 
+           top:0;
            margin-right: 20px;
-           background-color: white;}
+           background-color: transparent;}
 
 .sidenav{height: 100%;
-        width: 0;
+        width: 0px;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -58,7 +65,7 @@
   .phone{display: block;}
   #navbarButton{width: 56px; position:relative;}
   .main{display: none}
-  #hamburger{padding: 0 3%; margin: 0;}
+  #hamburger{padding: 0 3%; margin: 0; background-color: white;}
 
 }
 

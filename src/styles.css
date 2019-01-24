@@ -32,8 +32,8 @@
      
 
       .color-change-2x {
-        -webkit-animation: color-change-2x 2s linear infinite alternate both;
-                animation: color-change-2x 2s linear infinite alternate both;
+        -webkit-animation: color-change-2x 4s linear infinite alternate both;
+                animation: color-change-2x 4s linear infinite alternate both;
       }
 
       .scale-in-hor-center {
@@ -53,20 +53,20 @@
 
   @-webkit-keyframes color-change-2x {
   0% {
-    background: rgba(132, 233, 132, 0.842);
-  }
-  100% {
     background: #ffffff;
   }
-  }
-  @keyframes color-change-2x {
-  0% {
-    background: rgba(132, 233, 132, 0.842);
-  }
   100% {
-    background: #ffffff;
+    background: rgba(132, 233, 132, 0.842);
   }
 }
+  @keyframes color-change-2x {
+    0% {
+      background: #ffffff;
+    }
+    100% {
+      background: rgba(132, 233, 132, 0.842);
+    }
+  }
 
  
  @-webkit-keyframes scale-in-hor-center {

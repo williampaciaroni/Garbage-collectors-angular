@@ -1,1 +1,15 @@
-app-products{border: 1px solid red; display: block;margin-top:100px; }
+.logoCentrale{
+              width: 100%; 
+              height: 720px;
+              display: block;
+            }
+.color-change-2x{height: 100%;}
+img{width: 30%; height: 400px; margin:10% 35% 0 35%;}
+
+@media(max-width:767px){
+    .logoCentrale{height: 100%;
+                  margin-top: 30%;}
+
+    img{width: 100%;
+        margin: 0;}
+}

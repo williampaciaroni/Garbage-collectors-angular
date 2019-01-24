@@ -49,18 +49,18 @@ export class AppComponent {
 
   onActivate() {
     var side=document.getElementById("sideNav");
-    side.style.width="0";
+    side.style.width="0px";
     document.getElementById("hamburger").style.right="0";
   }
 
   openCloseSideNav(){
     var side=document.getElementById("sideNav");
 
-    if(side.style.width==="250px"){
+    if(side.style.width==="260px"){
       side.style.width="0px";
       document.getElementById("hamburger").style.right="0px";
     }else{
-      side.style.width="250px";
+      side.style.width="260px";
       document.getElementById("hamburger").style.right="180px";
     }
     
