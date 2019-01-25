@@ -10,7 +10,7 @@ import { catchError, flatMap } from 'rxjs/operators';
 })
 export class TokenService {
 
-  private url="http://10.0.12.221";
+  private url="https://garbage-auth.cfapps.io";
   private client_username="test_user";
   private cient_psw="test_psw";
   constructor(private http: HttpClient) { 
@@ -27,7 +27,7 @@ export class TokenService {
                                     'Authorization': 'Basic ' + btoa(this.client_username+':'+this.cient_psw)});  // btoa(...) converte una stringa in base-64
 
     
-    return this.http.post<HttpResponse<string>>(this.url+':8082/oauth/token', params.toString(), {headers: headers});
+    return this.http.post<HttpResponse<string>>(this.url+'/oauth/token', params.toString(), {headers: headers});
 
     
   }
@@ -44,7 +44,7 @@ export class TokenService {
                                     'Authorization': 'Basic ' + btoa(this.client_username+':'+this.cient_psw)}); 
              
     
-    return this.http.post<HttpResponse<string>>(this.url+':8082/oauth/token', params.toString(), {headers: headers}).pipe(
+    return this.http.post<HttpResponse<string>>(this.url+'/oauth/token', params.toString(), {headers: headers}).pipe(
       catchError(this.handleTokenError
       ));
   }

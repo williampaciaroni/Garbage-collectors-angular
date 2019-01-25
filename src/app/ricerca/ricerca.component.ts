@@ -46,7 +46,7 @@ export class RicercaComponent implements OnInit {
       .subscribe(politiche => this.politiche$=politiche);
   }
 
-  onClick(): void{
+  onClickSearch(): void{
     var barCode=(<HTMLInputElement>document.getElementById('barCode')).value;
     var area=(<HTMLInputElement>document.getElementById('area')).value;
     

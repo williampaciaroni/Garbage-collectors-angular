@@ -14,7 +14,7 @@ import { ProductService } from './product.service';
 
 export class AreaService {
 
-  private areasUrl='http://10.0.12.221:8080/area-geografica';
+  private areasUrl='https://garbage-rest.cfapps.io/area-geografica';
   product: Product;
   constructor(private http: HttpClient,
     private messageService: MessageService,private productService: ProductService) {

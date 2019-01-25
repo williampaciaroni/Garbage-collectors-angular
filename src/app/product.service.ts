@@ -18,7 +18,7 @@ const httpOptions = {
 export class ProductService {
  
   // private productsUrl = 'api/products';
-  private productsUrl='http://10.0.12.221:8080/products';
+  private productsUrl='https://garbage-rest.cfapps.io/products';
   _authHttp: any;
   
 
