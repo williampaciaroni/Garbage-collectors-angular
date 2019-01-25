@@ -26,7 +26,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { InserisciComponent } from './inserisci/inserisci.component';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
 import { MediaComponent } from './media/media.component';
-
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ScannerComponent } from './scanner/scanner.component';
 
 
 
@@ -45,14 +46,16 @@ import { MediaComponent } from './media/media.component';
     MenuNavComponent,
     PagenotfoundComponent,
     InserisciComponent,
-    MediaComponent  
+    MediaComponent,
+    ScannerComponent  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    OnsenModule
+    OnsenModule,
+    ZXingScannerModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

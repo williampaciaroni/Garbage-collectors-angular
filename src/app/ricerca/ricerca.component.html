@@ -19,9 +19,8 @@
       <h2>{{politica.componente.nomeComponente}}</h2><br>
   </div>
 </div> -->
-<div class="frame-video">
-  <video id="video-back" class="video-back" playsinline="true"></video>
-</div>
+
+
 <div class="wrapSearch  scale-in-hor-center">
     <form>
       <div class="form-group">
@@ -35,8 +34,11 @@
     </form>
 </div>
 
+
 <nav class="navbar">
-  <button class="barcodeBtn" (click)="onClickScan(e)">
-    <img class="imgBar" src="assets/images/barcode.png" alt="">
-  </button>
+    <a routerLink="/scanner">
+      <button class="barcodeBtn">
+          <img class="imgBar" src="assets/images/barcode.png" alt="">
+      </button>
+    </a>
 </nav>

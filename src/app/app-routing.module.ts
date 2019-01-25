@@ -12,6 +12,7 @@ import { RoleGuardService } from './role-guard.service';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { InserisciComponent } from './inserisci/inserisci.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
+import { ScannerComponent } from './scanner/scanner.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: FirstpageComponent},
   { path: 'search', component: RicercaComponent},
+  { path: 'scanner', component: ScannerComponent},
   { path: 'login', component: LoginpageComponent, canActivate: [LoginGuardService] },
   { path: 'insert', component: InserisciComponent, canActivate: [RoleGuardService], data: { expectedRole: 'REGISTRATO' }},
   { path: '**', component: PagenotfoundComponent }

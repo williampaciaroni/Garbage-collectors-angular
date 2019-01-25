@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { Subject, Observable } from 'rxjs';
@@ -8,7 +8,12 @@ import { AreaService } from '../area.service';
 import { PoliticaSmaltimento } from '../politicasmaltimento';
 import { TokenService } from '../token.service';
 
+
 import Quagga from 'quagga';
+import { ActivatedRoute, Router } from '@angular/router';
+
+const _quagga=Quagga.default;
+
 
 @Component({
   selector: 'app-ricerca',
@@ -17,13 +22,15 @@ import Quagga from 'quagga';
 })
 export class RicercaComponent implements OnInit {
 
+ 
+
   product: Product;
   private searchTerms = new Subject<string>();
   area$:  Observable<Area[]>;
   area: Area;
   politiche$: PoliticaSmaltimento[];
   
-  constructor(private productService: ProductService, private areaService: AreaService, private token:TokenService) { }
+  constructor(private productService: ProductService, private areaService: AreaService, private token:TokenService, private route:ActivatedRoute, private router:Router) { }
 
   search(term: string): void {
     this.searchTerms.next(term);
@@ -64,9 +71,19 @@ export class RicercaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.route.queryParams.subscribe(params=>(<HTMLInputElement>document.getElementById('barCode'))))
+    this.route.queryParams.subscribe(
+      params=>
+      { if(params['barCode']!==undefined)
+        {
+          (<HTMLInputElement>document.getElementById('barCode')).value=params['barCode']
+        }  
+      }
+    )
     
   }
 
+  
   onClickCheckBox(){
     if((<HTMLInputElement>document.getElementById('checkBoxArea')).checked===true){
       (<HTMLInputElement>document.getElementById('area')).disabled=true;
@@ -81,6 +98,6 @@ export class RicercaComponent implements OnInit {
   }
 
   onClickScan(){
-    // const Quagga=require('quagga').default;
+    
   }
 }
