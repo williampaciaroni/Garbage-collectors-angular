@@ -1,47 +1,4 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light">
-    <a routerLink="/" class="navbar-brand">
-      <img src="assets/images/GCLogo.png">
-    </a>
-
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-   <a routerLink="insert" class="element">Inserisci</a>
-    <ul id="menu">
-      <li>
-          <a>Account</a>
-          <ul  id="menuAccount"> 
-              <li class="titleMenuList">Il mio Account</li>
-              <li class="elementMenuList">Profilo</li>
-              <li class="elementMenuList">Impostazioni</li>
-              <button id="btnLogin" (click)='onClickLog()'>{{buttonLogName}}</button>
-          </ul>  
-      </li>  
-    </ul>
-  </nav> -->
-  
-  <nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" routerLink="/home">
     <img id="logo" src="assets/images/logoGC3cm.png">
     </a>
@@ -49,16 +6,24 @@
     <div id="sideNav" class="sidenav">
         <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" routerLink="/home"> Home</a>
+              <a class="nav-link" routerLink="/home"> 
+                <i class="fa fa-home"> Home</i>
+              </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/search">Ricerca</a>
+                <a class="nav-link" routerLink="/search">
+                  <i class="fa fa-search"> Ricerca</i>
+                </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/insert">Inserisci</a>
+              <a class="nav-link" routerLink="/insert">
+                <i class="fa fa-plus"> Inserisci</i>
+              </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/insert">Account</a>
+                <a class="nav-link" routerLink="/insert">
+                  <i class="fa fa-user"> Account</i>
+                </a>
             </li>
           </ul>
           <button class="btnLog" (click)="onClickLog()">{{buttonLogName}}</button>

@@ -7,6 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { PoliticaSmaltimento } from './politicasmaltimento';
 import { Product } from './product';
 import { ProductService } from './product.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ import { ProductService } from './product.service';
 
 export class AreaService {
 
-  private areasUrl='https://garbage-rest.cfapps.io/area-geografica';
+  private areasUrl=environment.baseUrlRest+'/area-geografica';
   product: Product;
   constructor(private http: HttpClient,
     private messageService: MessageService,private productService: ProductService) {

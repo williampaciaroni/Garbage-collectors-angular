@@ -16,7 +16,7 @@ import { ScannerComponent } from './scanner/scanner.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full'},
-  { path: 'products/:id', component: ProductDetailComponent},
+  { path: 'search/:areaId/:prodId', component: ProductDetailComponent},
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: FirstpageComponent},
   { path: 'search', component: RicercaComponent},

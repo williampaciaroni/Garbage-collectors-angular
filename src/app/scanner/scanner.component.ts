@@ -56,6 +56,8 @@ currentDevice: MediaDeviceInfo;
   handleQrCodeResult(resultString:string){
     console.debug('Result: ',resultString);
     this.qrResultString=resultString;
+    this.scanner.changeDevice(null);
+    this.currentDevice=null;
     this.router.navigate(['/search'],{  queryParams: {barCode: resultString}});
   }
 

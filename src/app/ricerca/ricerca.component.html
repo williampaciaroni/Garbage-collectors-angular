@@ -24,7 +24,7 @@
 <div class="wrapSearch  scale-in-hor-center">
     <form>
       <div class="form-group">
-        <input type="text" class="form-control" id="barCode" aria-describedby="emailHelp" placeholder="8001050026066" required>
+        <input type="text" class="form-control" id="barCode" aria-describedby="emailHelp" placeholder="Codice a barre" required>
         </div>
        <div class="form-group">
           <input type="text" class="form-control" id="area" placeholder="Città" required>
@@ -32,6 +32,25 @@
         </div>
       <button type="submit" class="btn" (click)="onClickSearch()">Cerca</button>
     </form>
+</div>
+
+<div class="wrapRisultato scale-in-top" *ngIf="product!==null">
+  <div class="productTitle">
+    <div>
+      <h4>Scheda prodotto: {{product.nomeProdotto}}</h4>
+    </div>
+    <div *ngIf="product===undefined && product!==null">
+        <h4>Il prodotto cercato da lei non è ancora disponibile. </h4>
+    </div>
+  </div>
+  <div class="containerComponenti" *ngIf="checkProduct()">
+    <h4 class="attributoColonna1">Componente</h4>
+    <h4 class="attributoColonna2">Politica di Smaltimento</h4>
+    <div *ngFor="let politica of politiche$" class="componente">
+        <h5 class="nomeComponente">{{politica.componente.nomeComponente}}</h5>
+        <h5 class="politica">{{politica.categoria.categoria}}</h5>
+    </div>
+  </div>
 </div>
 
 

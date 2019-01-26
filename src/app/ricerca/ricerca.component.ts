@@ -3,16 +3,14 @@ import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { Subject, Observable } from 'rxjs';
 import { Area } from '../area';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { AreaService } from '../area.service';
 import { PoliticaSmaltimento } from '../politicasmaltimento';
 import { TokenService } from '../token.service';
 
-
-import Quagga from 'quagga';
 import { ActivatedRoute, Router } from '@angular/router';
+import { delay } from 'q';
 
-const _quagga=Quagga.default;
+
 
 
 @Component({
@@ -24,11 +22,11 @@ export class RicercaComponent implements OnInit {
 
  
 
-  product: Product;
+  product: Product=null;
   private searchTerms = new Subject<string>();
   area$:  Observable<Area[]>;
   area: Area;
-  politiche$: PoliticaSmaltimento[];
+  politiche$: PoliticaSmaltimento[]=null;
   
   constructor(private productService: ProductService, private areaService: AreaService, private token:TokenService, private route:ActivatedRoute, private router:Router) { }
 
@@ -37,11 +35,13 @@ export class RicercaComponent implements OnInit {
   }
 
   getProduct(prodId: string): void{
+    this.product=null;
     this.productService.getProduct(prodId)
       .subscribe(product => this.product = product);
   }
 
   getPolitiche(prodId:string , nomeArea: string): void{
+    this.politiche$=null;
     this.areaService.getPolitiche(prodId,nomeArea)
       .subscribe(politiche => this.politiche$=politiche);
   }
@@ -50,28 +50,13 @@ export class RicercaComponent implements OnInit {
     var barCode=(<HTMLInputElement>document.getElementById('barCode')).value;
     var area=(<HTMLInputElement>document.getElementById('area')).value;
     
-    this.getProduct(barCode);
-    this.getPolitiche(barCode,area);
-    
-  }
-
-  getColor(politica: PoliticaSmaltimento){
-    var color='grey';
-    if(politica.categoria!==undefined && politica.categoria!==null){
-      const categoria=politica.categoria.categoria;
-      if(categoria==='PLASTICA'){
-        color='#00a8ec';
-      }else if(categoria==='VETRO'){
-        color='#51d93b';
-      }else if(categoria==='CARTA'){
-        color='#ffb11b';
-      }
-    }
-    return color;;
+    if(area!=='' && barCode!==''){
+      this.getProduct(barCode);
+      this.getPolitiche(barCode,area);
+    } 
   }
 
   ngOnInit(): void {
-    if(this.route.queryParams.subscribe(params=>(<HTMLInputElement>document.getElementById('barCode'))))
     this.route.queryParams.subscribe(
       params=>
       { if(params['barCode']!==undefined)
@@ -87,8 +72,10 @@ export class RicercaComponent implements OnInit {
   onClickCheckBox(){
     if((<HTMLInputElement>document.getElementById('checkBoxArea')).checked===true){
       (<HTMLInputElement>document.getElementById('area')).disabled=true;
+      (<HTMLInputElement>document.getElementById('area')).value=this.getUserArea();
     }else{
       (<HTMLInputElement>document.getElementById('area')).disabled=false;
+      (<HTMLInputElement>document.getElementById('area')).value="";
     }
     
   }
@@ -97,7 +84,20 @@ export class RicercaComponent implements OnInit {
     return this.token.isAuthenticated();
   }
 
-  onClickScan(){
-    
+  checkProduct(){
+    if(this.product===undefined || this.product===null){
+      return false;
+    }else if(this.product!==undefined && this.product!==null){
+      if(this.politiche$.length===0){
+        return false;
+      }
+    }
+    return true;
   }
+
+  getUserArea(){
+    return this.token.obtainAreaUser();
+  }
+
+
 }

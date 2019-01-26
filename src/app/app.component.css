@@ -11,6 +11,12 @@
 
 .navbar{position: fixed; z-index: 1; width: 100%; top:0;}
 
+.fa{
+     font-size: 22px;
+     font-weight: bold;
+     font-style: normal;
+}
+
 #hamburger{font-size: 45px; 
            font-weight: bold; 
            padding:5px; 

@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Product } from './product';
 import { MessageService } from './message.service';
 import { ComponentP } from './componentp';
+import { environment } from 'src/environments/environment.prod';
 
  
 const httpOptions = {
@@ -17,8 +18,7 @@ const httpOptions = {
 
 export class ProductService {
  
-  // private productsUrl = 'api/products';
-  private productsUrl='https://garbage-rest.cfapps.io/products';
+  private productsUrl=environment.baseUrlRest+'/products';
   _authHttp: any;
   
 

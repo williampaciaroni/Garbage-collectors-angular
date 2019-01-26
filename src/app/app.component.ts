@@ -22,7 +22,8 @@ export class AppComponent {
     if(this.tokenService.isExpired()){
       this.repeated();
     }
-    interval(30000).subscribe(
+    /* Refresh = 12 minuti*/
+    interval(720000).subscribe(
       () => this.repeated()
     )
   }

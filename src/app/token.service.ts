@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, interval } from 'rxjs';
-import * as jwt_decode from 'jwt-decode';
+import * as decode from 'jwt-decode';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { catchError, flatMap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
-  private url="https://garbage-auth.cfapps.io";
+  private url=environment.baseUrlAuth;
   private client_username="test_user";
   private cient_psw="test_psw";
   constructor(private http: HttpClient) { 
@@ -87,5 +88,9 @@ export class TokenService {
     localStorage.removeItem('auth_token');
   }
 
+  public obtainAreaUser(){
+    const token=decode(this.getToken());
+    return token.area;
+  }
   
 }
