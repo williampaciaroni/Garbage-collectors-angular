@@ -57,42 +57,6 @@ export class ProductService {
     );
   }
 
-
-  searchProducts(term: string): Observable<Product[]> {
-    if (!term.trim()) {
-      // if not search term, return empty product array.
-      return of([]);
-    }
-    return this.http.get<Product[]>(`${this.productsUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found products matching "${term}"`)),
-      catchError(this.handleError<Product[]>('searchProducts', []))
-    );
-  }
-
-  updateProduct (product: Product): Observable<any> {
-    return this.http.put(this.productsUrl, product, httpOptions).pipe(
-      tap(_=> this.log(`updated product id=${product.prodId}`)),
-      catchError(this.handleError<any>('updatedProduct'))
-    );
-  }
-
-  addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.productsUrl, product, httpOptions).pipe(
-      tap((product: Product) => this.log(`added product w/ id=${product.prodId}`)),
-      catchError(this.handleError<Product>('addProduct'))
-    );
-  }
-
-  deleteProduct (product: Product | number): Observable<Product> {
-    const id = typeof product === 'number' ? product : product.prodId;
-    const url = `${this.productsUrl}/${id}`;
-
-    return this.http.delete<Product>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted product id=${id}`)),
-      catchError(this.handleError<Product>('deleteProduct'))
-    );
-  }
-
   private log(message: string){
     this.messageService.add(`ProductService: ${message}`);
   }

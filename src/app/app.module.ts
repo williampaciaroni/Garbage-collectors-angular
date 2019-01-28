@@ -6,7 +6,6 @@ import { OnsenModule } from 'ngx-onsenui';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 
@@ -29,7 +28,6 @@ import { ScannerComponent } from './scanner/scanner.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
     ProductDetailComponent,
     MessagesComponent,
     FirstpageComponent,
