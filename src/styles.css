@@ -65,18 +65,18 @@
 
   @-webkit-keyframes color-change-2x {
   0% {
-    background: #ffffff;
+    background: #439e1f;
   }
   100% {
-    background: rgba(52, 161, 52, 0.842);
+    background: #106838;
   }
 }
   @keyframes color-change-2x {
     0% {
-      background: #ffffff;
+      background: #439e1f;
     }
     100% {
-      background: rgba(52, 161, 52, 0.842);
+      background: #106838;
     }
   }
 

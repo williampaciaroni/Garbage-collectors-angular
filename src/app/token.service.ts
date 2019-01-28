@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angul
 import { Observable, throwError, interval } from 'rxjs';
 import * as decode from 'jwt-decode';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { catchError, flatMap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
