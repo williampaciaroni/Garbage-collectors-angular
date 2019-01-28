@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { ProductsComponent } from './products/products.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FirstpageComponent } from './firstpage/firstpage.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';

@@ -6,7 +6,6 @@ import { catchError, map, tap } from 'rxjs/operators';
  
 import { Product } from './product';
 import { MessageService } from './message.service';
-import { ComponentP } from './componentp';
 import { environment } from 'src/environments/environment.prod';
 
  
@@ -55,15 +54,6 @@ export class ProductService {
     return this.http.get<Product>(url).pipe(
       tap(_ => this.log(`fetched product id=${id}`)),
       catchError(this.handleError<Product>(`getProduct id=${id}`))
-    );
-  }
-
-  getComponents(id: number): Observable<ComponentP[]> {
-    const url = `${this.productsUrl}/${id}/components`;
-    
-    return this.http.get<ComponentP[]>(url).pipe(
-      tap(_ => this.log('fetched components')),
-      catchError(this.handleError(`getComponents id=${id}`,[]))
     );
   }
 
