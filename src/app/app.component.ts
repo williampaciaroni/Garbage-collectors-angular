@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
 import { interval } from 'rxjs';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -67,4 +68,5 @@ export class AppComponent {
     }
     
   }
+  
 }

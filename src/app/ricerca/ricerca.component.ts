@@ -26,7 +26,7 @@ export class RicercaComponent implements OnInit {
   private searchTerms = new Subject<string>();
   area$:  Observable<Area[]>;
   area: Area;
-  politiche$: PoliticaSmaltimento[]=null;
+  politiche$: PoliticaSmaltimento[];
   
   constructor(private productService: ProductService, private areaService: AreaService, private token:TokenService, private route:ActivatedRoute, private router:Router) { }
 
@@ -34,14 +34,17 @@ export class RicercaComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
-  getProduct(prodId: string): void{
+  getProduct(prodId: string,area: string): void{
     this.product=null;
     this.productService.getProduct(prodId)
-      .subscribe(product => this.product = product);
+      .subscribe(product => {
+        this.product = product;
+        if(product!==undefined){
+          this.getPolitiche(prodId,area);
+          }});
   }
 
   getPolitiche(prodId:string , nomeArea: string): void{
-    this.politiche$=null;
     this.areaService.getPolitiche(prodId,nomeArea)
       .subscribe(politiche => this.politiche$=politiche);
   }
@@ -51,8 +54,8 @@ export class RicercaComponent implements OnInit {
     var area=(<HTMLInputElement>document.getElementById('area')).value;
     
     if(area!=='' && barCode!==''){
-      this.getProduct(barCode);
-      this.getPolitiche(barCode,area);
+      this.getProduct(barCode,area);
+      // this.getPolitiche(barCode,area);
     } 
   }
 
@@ -99,5 +102,5 @@ export class RicercaComponent implements OnInit {
     return this.token.obtainAreaUser();
   }
 
-
+  
 }

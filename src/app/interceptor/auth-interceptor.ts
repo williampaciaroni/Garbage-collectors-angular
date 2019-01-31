@@ -27,11 +27,11 @@ export class AuthInterceptor implements HttpInterceptor{
     intercept(req:HttpRequest<any>, next:HttpHandler) {
 
         const token=this.authService.getToken();
-        if(token===null){
+        if(token===null || req.url.search(/check_token/)!==-1){
             return next.handle(req);   
         }
         else{
-            return next.handle(this.addToken(req, this.authService.getToken()));
+                return next.handle(this.addToken(req, this.authService.getToken()));
         }
     }
  

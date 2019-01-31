@@ -18,7 +18,7 @@ export class TokenService {
     
   }
 
-  public obtainToken(username, password): Observable<HttpResponse<string>> {
+  public obtainToken(username , password): Observable<HttpResponse<string>> {
     const params = new URLSearchParams();
     params.append('username', username);
     params.append('password', password);
@@ -91,6 +91,20 @@ export class TokenService {
   public obtainAreaUser(){
     const token=decode(this.getToken());
     return token.area;
+  }
+
+  checkToken(){
+
+    const token=this.getToken();
+    const params = new URLSearchParams();
+
+    params.append('token', token);
+
+    const headers = new HttpHeaders({'Content-type': 'application/x-www-form-urlencoded',
+                                    'Authorization': 'Basic ' + btoa(this.client_username+':'+this.cient_psw)});
+
+
+    return this.http.post<HttpResponse<any>>(this.url+'/oauth/check_token', params.toString(),{headers:headers});
   }
   
 }
