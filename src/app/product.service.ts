@@ -18,8 +18,6 @@ const httpOptions = {
 export class ProductService {
  
   private productsUrl=environment.baseUrlRest+'/products';
-  _authHttp: any;
-  
 
   constructor(private http: HttpClient,
     private messageService: MessageService) {
@@ -35,7 +33,7 @@ export class ProductService {
       );
   }
 
-  getProductNo404<Data>(id: number): Observable<Product> {
+  getProductNo404<Data>(id: string): Observable<Product> {
     const url = `${this.productsUrl}/?id=${id}`;
 
     return this.http.get<Product[]>(url)
@@ -77,6 +75,7 @@ export class ProductService {
   }
 
   checkProduct(prodId: string): Observable<Boolean> {
+    
     const url = `${this.productsUrl}/esiste/${prodId}`;
     return this.http.get<Boolean>(url).pipe(
       tap(_ => this.log(`fetched product id=${prodId}`)),

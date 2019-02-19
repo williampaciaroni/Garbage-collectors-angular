@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
-import { HttpHeaders, HttpResponse } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-inserisci',
@@ -11,13 +8,9 @@ import { catchError } from 'rxjs/operators';
 })
 export class InserisciComponent implements OnInit {
 
-  constructor(private productService: ProductService, private http:HttpClient) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  onClick(){
-    this.productService.checkProduct('1').subscribe(data=>(data)); 
   }
 
 }

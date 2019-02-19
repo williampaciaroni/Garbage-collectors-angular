@@ -1,0 +1,35 @@
+.container-auth{
+    width: 80%;
+    margin: 2.5% 10% 0 10%;
+}
+
+.navbar{
+    width: 100%;
+    display: block;
+    background-color: rgba(2, 6, 15, 0.815);
+    padding:0;
+}
+
+.navbar-nav{
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+.nav-item{  
+    font-family: Helvetica;
+    font-size: 22px;
+    padding: 0 10px 1% 10px;
+    display: inline-block;
+    width: auto;
+    border-right: 1px solid white;
+}
+
+.nav-item:hover{
+    transition: 0.5s ease;
+    background-color: black;
+}
+
+.nav-link{
+    color: white;
+}

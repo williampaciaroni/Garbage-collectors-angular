@@ -1,0 +1,11 @@
+<div class="container-form scale-in-hor-center">
+  <h3 class="title-proposta">Proponi un nuovo prodotto:</h3>
+  <div class="form">
+    <p class="infoCampo">Codice a barre:</p>
+    <input type="text" class="form-control" id="barCode" placeholder="Codice a barre" (input)="checkProduct()" required>
+    <p *ngIf="check">{{error}}</p>
+    <p class="infoCampo">Nome prodotto:</p>
+    <input type="text" class="form-control" id="nomeProdotto" placeholder="Nome prodotto" required>
+    <button id="btnProposta" class="btn" (click)="onClick()">Invia Proposta</button>
+  </div>
+</div>

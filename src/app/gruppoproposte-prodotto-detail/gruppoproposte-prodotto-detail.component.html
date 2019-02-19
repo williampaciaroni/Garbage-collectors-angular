@@ -1,0 +1,9 @@
+<div>
+  <ul>
+    <li *ngFor="let proposta of proposte$">
+      {{proposta.propostaId.prodId}} {{proposta.nomeProdotto}}  {{proposta.propostaId.user.username}}
+      <button (click)="onClickScarta(proposta.propostaId)">Scarta</button>
+      <button (click)="onClickConvalida(proposta)">Convalida</button>
+    </li>
+  </ul>
+</div>

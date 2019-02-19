@@ -31,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor{
             return next.handle(req);   
         }
         else{
-                return next.handle(this.addToken(req, this.authService.getToken()));
+            return next.handle(this.addToken(req, this.authService.getToken()));
         }
     }
  

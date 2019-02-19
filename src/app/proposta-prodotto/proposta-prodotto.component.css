@@ -1,0 +1,54 @@
+.container-form{
+    width: 60%;
+    margin: 5% 20% 0 20%;
+    background-image: url("/assets/images/prodotti.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.title-proposta{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    padding-bottom: 3%;
+}
+
+.form{
+    width: 55%;
+    margin: 0 0 0 40%;
+    padding: 2% 0 0 5%;
+    background-color: white;
+}
+
+.infoCampo{
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0;
+}
+
+.form-control{
+    width: 50%;
+    color: black;
+    height: 30px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.btn{background-color: rgba(2, 6, 15, 0.815); 
+     opacity: 0.8; 
+     color: white;
+     font-size: 16px;  
+     font-family: Helvetica; 
+     width: 35%; 
+     margin:auto; 
+     border-radius: 25px; 
+     margin: 1% 0 3% 7%;
+     font-weight: bold;
+}
+
+.btn:hover{
+    opacity: 1;
+}

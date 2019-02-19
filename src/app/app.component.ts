@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
 import { interval } from 'rxjs';
-import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,7 @@ import { PlatformLocation } from '@angular/common';
 })
 export class AppComponent {
   title = 'Garbage Collectors';
-  buttonLogName='';
+  buttonLogName='Accedi';
 
 
   constructor(private tokenService: TokenService, private router:Router){
@@ -24,7 +23,7 @@ export class AppComponent {
       this.repeated();
     }
     /* Refresh = 12 minuti*/
-    interval(720000).subscribe(
+    interval(240000).subscribe(
       () => this.repeated()
     )
   }
@@ -33,7 +32,7 @@ export class AppComponent {
   }
 
   onClickLog(){
-    if(!this.tokenService.getToken()){
+    if(this.tokenService.getToken()==null){
       this.router.navigate(['login']);
     }else{
       this.tokenService.logOut();
@@ -44,9 +43,10 @@ export class AppComponent {
     if(this.tokenService.getToken()!==null){
     this.tokenService.removeToken();
     this.tokenService.refreshToken().subscribe(
-      data=>this.tokenService.saveToken(JSON.stringify(data))
-    );
-    }
+      data=>{
+        this.tokenService.saveToken(JSON.stringify(data));
+      });
+   }
   }
 
   onActivate() {
@@ -67,6 +67,13 @@ export class AppComponent {
       document.getElementById("hamburger").style.right="180px";
     }
     
+  }
+
+  checkAuth(): boolean{
+    if(this.tokenService.getAuthorities()==='AUTORITA'){
+      return false;
+    }
+    return true;
   }
   
 }

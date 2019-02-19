@@ -1,3 +1,19 @@
-<p>
-  product detail works
-</p>
+<div class="containerDesc">
+  <div class="productTitle">
+    <div>
+      <h4>Scheda prodotto:</h4>
+      <h4 *ngIf="product!==undefined && product!==null">{{product.nomeProdotto}}</h4>
+    </div>
+    <div *ngIf="product===undefined">
+      <h4>Il prodotto cercato da lei non è ancora disponibile. </h4>
+      </div>
+    </div>
+    <div class="containerComponenti" *ngIf="checkProduct()">
+      <h4 class="attributoColonna1">Componente</h4>
+      <h4 class="attributoColonna2">Politica di Smaltimento</h4>
+     <div *ngFor="let politica of politiche$" class="componente">
+       <h5 class="nomeComponente">{{politica.componente.nomeComponente}}</h5>
+       <h5 class="politica">{{politica.categoria.categoria}}</h5>
+     </div>
+  </div>
+</div>

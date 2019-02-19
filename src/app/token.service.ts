@@ -18,7 +18,7 @@ export class TokenService {
     
   }
 
-  public obtainToken(username , password): Observable<HttpResponse<string>> {
+  public obtainToken(username:string , password:string): Observable<HttpResponse<string>> {
     const params = new URLSearchParams();
     params.append('username', username);
     params.append('password', password);
@@ -33,7 +33,7 @@ export class TokenService {
     
   }
 
-  public refreshToken(){
+  public refreshToken(): Observable<HttpResponse<string>> {
 
     const params = new URLSearchParams();
 
@@ -50,13 +50,14 @@ export class TokenService {
       ));
   }
 
+  
   public saveToken(token) {
     const _token=JSON.parse(token);
     localStorage.setItem('auth_token', _token ['access_token']);
     localStorage.setItem('refresh_token', _token ['refresh_token']);
   }
 
-  public getToken() {
+  public getToken(): string {
     return localStorage.getItem('auth_token');
   }
 
@@ -66,7 +67,7 @@ export class TokenService {
     return !jwtHelper.isTokenExpired(token);
   }
 
-  public logOut(){
+  public logOut(): void{
     localStorage.removeItem('auth_token');
     localStorage.removeItem('refresh_token');
     location.reload();
@@ -76,7 +77,7 @@ export class TokenService {
     return throwError(error);
   }
 
-  public isExpired(){
+  public isExpired(): boolean{
     if(this.getToken()!==null){
       const helper=new JwtHelperService();
       return helper.isTokenExpired(this.getToken());
@@ -84,16 +85,16 @@ export class TokenService {
     return true;
   }
 
-  public removeToken(){
+  public removeToken(): void{
     localStorage.removeItem('auth_token');
   }
 
-  public obtainAreaUser(){
+  public obtainAreaUser(): string{
     const token=decode(this.getToken());
     return token.area;
   }
 
-  checkToken(){
+  public checkToken(){
 
     const token=this.getToken();
     const params = new URLSearchParams();
@@ -105,6 +106,19 @@ export class TokenService {
 
 
     return this.http.post<HttpResponse<any>>(this.url+'/oauth/check_token', params.toString(),{headers:headers});
+  }
+
+  public getUserName(): string{
+    const token=decode(this.getToken());
+    return token.user_name;
+  }
+
+  public getAuthorities(): string{
+    if(this.getToken()!==null){
+      const token=decode(this.getToken());
+      return token.authorities[0];
+    }
+    return '';
   }
   
 }

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="title">
+    <div class="text">
+      Proposte Prodotto
+    </div>
+  </div>
+  <div class="container-proposte">
+    <div class="infoCampi">
+      <div class="campo">Codice a barre</div>
+      <div class="campo">Numero proposte</div>
+    </div>
+    <div class="proposta"  *ngFor="let gruppo of gruppiProposte$">
+      <a *ngIf="gruppo.prodId!==''" class="prodottoInfo">{{gruppo.prodId}} </a> 
+      <a *ngIf="gruppo.prodId!==''" class="prodottoInfo"> {{gruppo.count}}</a>
+      <button value="" (click)="onClick(gruppo.prodId)" class="chooseButton">Scegli..</button>
+    </div>
+  </div>
+</div>

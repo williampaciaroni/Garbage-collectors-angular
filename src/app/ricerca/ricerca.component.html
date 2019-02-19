@@ -4,32 +4,12 @@
         <input type="text" class="form-control" id="barCode" aria-describedby="emailHelp" placeholder="Codice a barre" required>
         </div>
        <div class="form-group">
-          <input type="text" class="form-control" id="area" placeholder="Città" required>
+          <input #areaBox type="text" class="form-control" id="area" placeholder="Città" required />
           <input type="checkbox" id="checkBoxArea" name="checkAreaResidenza" (click)="onClickCheckBox()" *ngIf="isAuthenticated()"> <label *ngIf="isAuthenticated()"> Area di Residenza</label>
         </div>
       <button type="submit" class="btn" (click)="onClickSearch()">Cerca</button>
     </form>
 </div>
-
-<div class="wrapRisultato scale-in-top" *ngIf="product!==null">
-  <div class="productTitle">
-    <div>
-      <h4>Scheda prodotto: {{product.nomeProdotto}}</h4>
-    </div>
-    <div *ngIf="product===undefined && politiche$===undefined">
-        <h4>Il prodotto cercato da lei non è ancora disponibile. </h4>
-    </div>
-  </div>
-  <div class="containerComponenti" *ngIf="checkProduct()">
-    <h4 class="attributoColonna1">Componente</h4>
-    <h4 class="attributoColonna2">Politica di Smaltimento</h4>
-    <div *ngFor="let politica of politiche$" class="componente">
-        <h5 class="nomeComponente">{{politica.componente.nomeComponente}}</h5>
-        <h5 class="politica">{{politica.categoria.categoria}}</h5>
-    </div>
-  </div>
-</div>
-
 
 <nav class="navbar">
     <a routerLink="/scanner">

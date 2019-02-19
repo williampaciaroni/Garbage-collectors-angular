@@ -1,0 +1,83 @@
+.container-title{
+    background-color: rgba(228, 228, 228, 0.575);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid rgba(180, 180, 180, 0.637);
+}
+
+.container-scelta{
+    background-color: rgba(228, 228, 228, 0.575);
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+h3{
+    margin-left: 3%;
+}
+
+h5{
+    margin-left: 3%;
+    font-family: Helvetica;
+}
+
+.scelta{
+    width: 80%;
+    margin: 3% 10% 2% 10%;
+    display: block;
+}
+
+.card{
+    display: inline-block;
+    width: 40%;
+    margin: 3% 0% 3% 7%;
+    border: 1px transparent;
+    background: black;
+    border-radius: 0px;
+}
+
+.prod{
+      display: block;
+      background-image: url("/assets/images/prodotti.jpg");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      height: 240px;
+      opacity: 0.8;
+}
+
+
+.comp{
+    display: block;
+    background-image: url("/assets/images/componenti.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 240px;
+    opacity: 0.8;
+}
+
+.card:hover .prod{
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.card:hover .comp{
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.card:hover .text{
+    opacity: 1;
+    transition: 1s;
+}
+
+.text{
+    width: 100%;
+    text-align: center;
+    top: 45%;
+    display: block;
+    position: absolute;
+    color: white;
+    font-style: none;
+    font-family: Helvetica;
+    font-size: 26px;
+    font-weight: bold;
+    opacity: 0;
+}

@@ -1,14 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
-import { Subject, Observable } from 'rxjs';
-import { Area } from '../area';
 import { AreaService } from '../area.service';
-import { PoliticaSmaltimento } from '../politicasmaltimento';
 import { TokenService } from '../token.service';
-
 import { ActivatedRoute, Router } from '@angular/router';
-import { delay } from 'q';
 
 
 
@@ -19,43 +12,17 @@ import { delay } from 'q';
   styleUrls: ['./ricerca.component.css']
 })
 export class RicercaComponent implements OnInit {
-
- 
-
-  product: Product=null;
-  private searchTerms = new Subject<string>();
-  area$:  Observable<Area[]>;
-  area: Area;
-  politiche$: PoliticaSmaltimento[];
   
-  constructor(private productService: ProductService, private areaService: AreaService, private token:TokenService, private route:ActivatedRoute, private router:Router) { }
+  
+  constructor(private areaService: AreaService, private token:TokenService, private route:ActivatedRoute, private router:Router) { }
 
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
-
-  getProduct(prodId: string,area: string): void{
-    this.product=null;
-    this.productService.getProduct(prodId)
-      .subscribe(product => {
-        this.product = product;
-        if(product!==undefined){
-          this.getPolitiche(prodId,area);
-          }});
-  }
-
-  getPolitiche(prodId:string , nomeArea: string): void{
-    this.areaService.getPolitiche(prodId,nomeArea)
-      .subscribe(politiche => this.politiche$=politiche);
-  }
-
+  
   onClickSearch(): void{
     var barCode=(<HTMLInputElement>document.getElementById('barCode')).value;
     var area=(<HTMLInputElement>document.getElementById('area')).value;
     
     if(area!=='' && barCode!==''){
-      this.getProduct(barCode,area);
-      // this.getPolitiche(barCode,area);
+      this.router.navigate(['search/result'],{queryParams: {barCode: barCode, area: area}});
     } 
   }
 
@@ -68,7 +35,6 @@ export class RicercaComponent implements OnInit {
         }  
       }
     )
-    
   }
 
   
@@ -83,24 +49,12 @@ export class RicercaComponent implements OnInit {
     
   }
 
-  isAuthenticated(){
+  isAuthenticated(): boolean{
     return this.token.isAuthenticated();
   }
 
-  checkProduct(){
-    if(this.product===undefined || this.product===null){
-      return false;
-    }else if(this.product!==undefined && this.product!==null){
-      if(this.politiche$.length===0){
-        return false;
-      }
-    }
-    return true;
-  }
-
-  getUserArea(){
+  private getUserArea(): string{
     return this.token.obtainAreaUser();
   }
-
   
 }

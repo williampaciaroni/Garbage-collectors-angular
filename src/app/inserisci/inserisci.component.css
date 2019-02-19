@@ -1,0 +1,73 @@
+.container-comp{
+            width: 80%;
+            margin: 0% 10% 0 10%;
+            height: 100%;
+            display: block;
+}
+
+.card{
+    float: left;
+    display: block;
+    width: 40%;
+    margin: 10% 0% 0% 7%;
+    border: 1px transparent;
+    background: black;
+    border-radius: 0px;
+}
+
+.prod{
+      display: block;
+      background-image: url("/assets/images/prodotti.jpg");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      height: 300px;
+      opacity: 0.8;
+}
+
+
+.comp{
+    display: block;
+    background-image: url("/assets/images/componenti.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 300px;
+    opacity: 0.8;
+}
+
+.card:hover .prod{
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.card:hover .comp{
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.card:hover .text{
+    opacity: 1;
+    transition: 1s;
+}
+
+.text{
+    width: 100%;
+    text-align: center;
+    top: 45%;
+    display: block;
+    position: absolute;
+    color: white;
+    font-style: none;
+    font-family: Helvetica;
+    font-size: 26px;
+    font-weight: bold;
+    opacity: 0;
+}
+
+p{
+    margin-top: 10%;
+    text-align:center;
+    font-size: 36px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: black;
+}

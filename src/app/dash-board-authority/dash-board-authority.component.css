@@ -1,0 +1,70 @@
+.container-title{
+    background-color: rgba(228, 228, 228, 0.575);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid rgba(180, 180, 180, 0.637);
+}
+
+h3{
+    margin-left: 3%;
+}
+
+h5{
+    margin-left: 3%;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.container-data{
+    width: 100%;
+    background-color: rgba(228, 228, 228, 0.575);
+}
+
+.container-cards{
+    display: block;
+    width: 100%;
+    padding-top: 2%;
+}
+
+.cardlist{
+    width: 100%;
+    margin: 0 10% 0 1%;
+    padding: 0;
+}
+
+.card{
+    display: inline-block;
+    width: 20%;
+    margin: 0 -2% 3% 5%;
+    height: 130px;
+    border: 1px;
+    border-radius: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.far{
+    margin-top: 4%;
+    font-size: 38px;
+    color: rgb(58, 182, 219);
+}
+
+.fa-lightbulb{
+    color: white;
+}
+
+
+.fas{
+    margin-top: 4%;
+    font-size: 38px;
+    color: rgb(58, 182, 219);
+}
+
+.fa-suitcase{
+    color: white;
+}
+
+.testoPrincipale{
+    margin-top: 3%;
+    font-size: 28px;
+}

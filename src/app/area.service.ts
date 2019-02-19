@@ -16,13 +16,13 @@ import { environment } from 'src/environments/environment.prod';
 export class AreaService {
 
   private areasUrl=environment.baseUrlRest+'/area-geografica';
-  product: Product;
+  private product: Product;
+
   constructor(private http: HttpClient,
     private messageService: MessageService,private productService: ProductService) {
      }
 
   getAreas(): Observable<Area[]> {
-      // TODO: send the message _after_ fetching the area
       return this.http.get<Area[]>(this.areasUrl)
         .pipe(
           tap(_ => this.log('fetched areas')),
@@ -40,19 +40,7 @@ export class AreaService {
      
   }
 
-
-  searchAreas(term: string): Observable<Area[]> {
-    if (!term.trim()) {
-      // if not search term, return empty area array.
-      return of([]);
-    }
-    return this.http.get<Area[]>(`${this.areasUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found areas matching "${term}"`)),
-      catchError(this.handleError<Area[]>('searchAreas', []))
-    );
-  }
-
-  private log(message: string){
+  private log(message: string): void{
     this.messageService.add(`AreaService: ${message}`);
   }
 

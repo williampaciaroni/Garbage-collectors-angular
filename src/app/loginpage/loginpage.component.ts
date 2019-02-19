@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../token.service';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs/operators';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-loginpage',
@@ -27,12 +27,15 @@ export class LoginpageComponent implements OnInit {
     }else{
       var password=(<HTMLInputElement>document.getElementById('psw')).value;
       if(password!==''){
-        this.tokenService.obtainToken(username,password).subscribe(data=>{
+            this.tokenService.removeToken();
+            this.tokenService.obtainToken(username,password).subscribe(data=>{
             this.tokenService.saveToken(JSON.stringify(data));
-            this.router.navigate(['home']);
-            location.reload();
-          });
-       
+            if(this.tokenService.getAuthorities()==='AUTORITA'){
+              location.replace('auth');
+            }else{
+              location.replace('home');
+            }
+          });  
       }
       else{
         document.getElementById('psw').style.border="1px solid red";
